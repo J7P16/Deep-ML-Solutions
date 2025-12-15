@@ -22,7 +22,7 @@ def train_neuron(features: np.ndarray, labels: np.ndarray, initial_weights: np.n
 		mse = summation / len(features)
 		mse_values.append(mse)
 		
-		# backward pass for weights
+		# backward pass
 		for j in range(len(features[0])):
 			summation = 0
 			for i in range(len(features)):
@@ -33,7 +33,6 @@ def train_neuron(features: np.ndarray, labels: np.ndarray, initial_weights: np.n
 			new_weight = initial_weights[j] - learning_rate * weight_gradient
 			updated_weights[j] = new_weight
 		
-		# backward pass for bias
 		summation = 0
 		for i in range(len(features)):
 			summation += (predictions[i] - labels[i]) * (predictions[i] * (1 - predictions[i]))
